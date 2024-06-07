@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TonConnect</title>
+    <script src="https://unpkg.com/@tonconnect/ui@0.0.9/dist/tonconnect-ui.min.js"></script>
+</head>
+<body>
+    <div id="connect"></div>
+    <script>
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://github.com/hankgalt1/wallet/blob/main/tonconnect-manifest.json',
+            buttonRootId: 'connect'
+    });
+    </script>
+    
+</body>
+</html>
