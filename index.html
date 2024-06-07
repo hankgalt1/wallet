@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tonconnect/ui@0.0.9/dist/tonconnect-ui.min.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Ton_connect</title>
+    <style style="text-align: center;">
+        body { background: url(bg.png);
+            }
+    </style>
+</head>
+<body>
+    <script>
+        console.log(window.Telegram.WebApp.WebAppUser.id)
+    </script>
+    
+    
+    <div id="connect" style="display:flex; justify-content:center; align-items:center; height:100vh;"></div>
+    
+    <script>
+        const tonconnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl:'https://hankgalt1.github.io/Hoary_Efim/tonconnect-manifest.json',
+            buttonRootId:'connect'
+        });
+        async function transaction(){
+        const transaction = {
+            validUntil:Math.round(Date.now()/1000)+10,
+            messages:[
+                {
+                    address:'0:bc8271e3058be5d3da54d4f1d69ff5c0f5053f92fca596c1731fb1b1432f4f14',
+                    amount:'10000000'
+                }
+            ]
+        };
+        try {
+            await tonconnectUI.sendTransaction(transaction);   
+        } catch(e){
+            console.error(e);
+        }
+    }
+    </script>
+</body>
+</html>
